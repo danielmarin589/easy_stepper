@@ -408,13 +408,16 @@ class _EasyStepperState extends State<EasyStepper> {
   Color _getLineColor(int index) {
     Color? preferredColor;
     if (index == widget.activeStep) {
-      //Active Step
+      // Active Step
+      preferredColor = lineStyle.unreachedLineColor;
+    } else if (index == widget.activeStep - 1) {
+      // Line before the Active Step
       preferredColor = lineStyle.activeLineColor;
     } else if (index > widget.activeStep) {
-      //Unreached Step
+      // Unreached Step
       preferredColor = lineStyle.unreachedLineColor;
     } else if (index < widget.activeStep) {
-      //Finished Step
+      // Finished Step
       preferredColor = lineStyle.finishedLineColor;
     }
 
